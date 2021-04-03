@@ -15,6 +15,7 @@
 		AE4A9F3426190218009704BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4A9F3226190218009704BA /* LaunchScreen.storyboard */; };
 		AE4A9F3F26190218009704BA /* AnimateCheckMarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A9F3E26190218009704BA /* AnimateCheckMarkTests.swift */; };
 		AE4A9F4A26190218009704BA /* AnimateCheckMarkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A9F4926190218009704BA /* AnimateCheckMarkUITests.swift */; };
+		AE4A9F5B26190245009704BA /* CheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A9F5A26190245009704BA /* CheckmarkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AE4A9F4526190218009704BA /* AnimateCheckMarkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimateCheckMarkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4A9F4926190218009704BA /* AnimateCheckMarkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateCheckMarkUITests.swift; sourceTree = "<group>"; };
 		AE4A9F4B26190218009704BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE4A9F5A26190245009704BA /* CheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				AE4A9F2726190214009704BA /* AppDelegate.swift */,
 				AE4A9F2926190214009704BA /* SceneDelegate.swift */,
 				AE4A9F2B26190214009704BA /* ViewController.swift */,
+				AE4A9F5A26190245009704BA /* CheckmarkView.swift */,
 				AE4A9F2D26190214009704BA /* Main.storyboard */,
 				AE4A9F3026190218009704BA /* Assets.xcassets */,
 				AE4A9F3226190218009704BA /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			files = (
 				AE4A9F2C26190214009704BA /* ViewController.swift in Sources */,
 				AE4A9F2826190214009704BA /* AppDelegate.swift in Sources */,
+				AE4A9F5B26190245009704BA /* CheckmarkView.swift in Sources */,
 				AE4A9F2A26190214009704BA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
