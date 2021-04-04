@@ -55,6 +55,7 @@ class CheckmarkView: UIView {
         animation.fromValue = oldStrokeEnd
         animation.toValue = newStrokeEnd
         animation.duration = 0.3
+//        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         layer.add(animation, forKey: nil)
         DispatchQueue.main.async {
             switch animationType {
