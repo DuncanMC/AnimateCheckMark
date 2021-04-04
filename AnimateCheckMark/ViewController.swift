@@ -22,5 +22,9 @@ class ViewController: UIViewController {
                                     animated: animateSwitch.isOn,
                                     animationType: AnimationType(rawValue: animationTypeControl.selectedSegmentIndex)!)
     }
+
+    @IBAction func handleAnimationCurveControl(_ sender: UISegmentedControl) {
+        checkmarkView.animationCurve = CheckmarkView.AnimationCurve(rawValue: sender.selectedSegmentIndex)!
+    }
 }
 
