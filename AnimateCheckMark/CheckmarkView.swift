@@ -95,6 +95,7 @@ class CheckmarkView: UIView {
     public func showCheckmark(_ checked: Bool, animated: Bool, animationType: AnimationType) {
         guard let layer = layer as? CAShapeLayer else { return }
         let newStrokeEnd: CGFloat = checked ?  1.0 : 0.0
+        
         //---------------------------------------------------------------------
         //This code is only needed if you allow the user to switch animation types
         let oldStrokeEnd: CGFloat = checked ? 0.0 : 1.0
@@ -102,10 +103,10 @@ class CheckmarkView: UIView {
         switch animationType {
         case .opacity:
             layer.strokeEnd = 1.0 // For opacity animations, make sure the strokeEnd is set to make the check visible
-            alpha = oldStrokeEnd
+            alpha = oldStrokeEnd // Start the opacity property at its old (opposite) value
         case .stroke:
-            alpha = 1.0
-            layer.strokeEnd = oldStrokeEnd
+            alpha = 1.0 // For stroke animations, make sure the alpha is set to make the check visible
+            layer.strokeEnd = oldStrokeEnd //Start the strokeEnd at its old (opposite) value
         }
         //---------------------------------------------------------------------
 
