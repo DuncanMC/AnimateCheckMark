@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum AnimationType: Int {
+    case opacity = 0
+    case stroke = 1
+}
+
 class CheckmarkView: UIView {
 
     public private (set) var checked: Bool = true
@@ -29,27 +34,47 @@ class CheckmarkView: UIView {
         doInitSetup()
     }
 
-    func animateShowCheckmark(_ show: Bool) {
+    func animateShowCheckmark(_ show: Bool, animationType: AnimationType) {
         guard let layer = layer as? CAShapeLayer else { return }
         let newStrokeEnd: CGFloat = show ? 1.0 : 0.0
         let oldStrokeEnd: CGFloat = show ? 0.0 : 1.0
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
+
+        //---------------------------------------------------------------------
+        //This code is only needed if you allow the user to switch animation types
+        switch animationType {
+        case .opacity:
+            layer.strokeEnd = 1.0 // For opacity animations, make sure the strokeEnd is set to make the check visible
+            layer.opacity = Float(oldStrokeEnd) //Set the opacity to the opposite of the new state so it animates correctly.
+        case .stroke:
+            layer.opacity = 1.0   // For stroke animations, make sure the opacity is set to make the check visible
+            layer.strokeEnd = oldStrokeEnd     //Set the strokeEnd to the opposite of the new state so it animates correctly.
+        }
+        //---------------------------------------------------------------------
+        let keyPath = animationType == .opacity ? "opacity" : "strokeEnd"
+        let animation = CABasicAnimation(keyPath: keyPath)
         animation.fromValue = oldStrokeEnd
         animation.toValue = newStrokeEnd
-        animation.duration = 0.5
+        animation.duration = 0.3
         layer.add(animation, forKey: nil)
         DispatchQueue.main.async {
-            layer.strokeEnd = newStrokeEnd
+            switch animationType {
+            case .opacity:
+                layer.opacity = Float(newStrokeEnd)
+            case .stroke:
+                layer.strokeEnd = newStrokeEnd
+            }
         }
+        self.checked = show
     }
 
-    public func showCheckmark(_ checked: Bool, animated: Bool) {
+    public func showCheckmark(_ checked: Bool, animated: Bool, animationType: AnimationType) {
         guard let layer = layer as? CAShapeLayer else { return }
         let newStrokeEnd: CGFloat = checked ?  1.0 : 0.0
         if !animated {
+            layer.opacity = Float(newStrokeEnd)
             layer.strokeEnd = newStrokeEnd
         } else {
-            animateShowCheckmark(checked)
+            animateShowCheckmark(checked, animationType: animationType)
         }
     }
 

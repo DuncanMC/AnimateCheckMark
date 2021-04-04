@@ -16,12 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcd-Vc-zVp" customClass="CheckmarkView" customModule="AnimateCheckMark" customModuleProvider="target">
-                                <rect key="frame" x="177" y="94" width="60" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPW-xL-W6K">
+                                <rect key="frame" x="176" y="94" width="62" height="62"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcd-Vc-zVp" customClass="CheckmarkView" customModule="AnimateCheckMark" customModuleProvider="target">
+                                        <rect key="frame" x="1" y="1" width="60" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="5gt-Io-QGy"/>
+                                            <constraint firstAttribute="width" constant="60" id="JWO-RM-NK1"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="5gt-Io-QGy"/>
-                                    <constraint firstAttribute="width" constant="60" id="JWO-RM-NK1"/>
+                                    <constraint firstItem="bcd-Vc-zVp" firstAttribute="centerX" secondItem="gPW-xL-W6K" secondAttribute="centerX" id="4pC-Nr-JRc"/>
+                                    <constraint firstItem="bcd-Vc-zVp" firstAttribute="centerY" secondItem="gPW-xL-W6K" secondAttribute="centerY" id="bWZ-PP-fGL"/>
+                                    <constraint firstAttribute="width" constant="62" id="edS-d4-cTH"/>
+                                    <constraint firstAttribute="height" constant="62" id="ukk-zE-FLO"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -30,7 +42,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Ifx-Dh-IIy">
-                                <rect key="frame" x="106" y="760" width="202.5" height="31"/>
+                                <rect key="frame" x="20" y="760" width="202.5" height="31"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Web-PO-E3I">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
@@ -47,13 +59,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Xve-ad-qse">
-                                <rect key="frame" x="106" y="811" width="134.5" height="31"/>
+                                <rect key="frame" x="20" y="811" width="134.5" height="31"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bI5-5n-Bx5">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
-                                        <connections>
-                                            <action selector="handleAnimateButton:" destination="BYZ-38-t0r" eventType="valueChanged" id="0S2-1t-qFY"/>
-                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wz2-jR-tyX">
                                         <rect key="frame" x="72" y="0.0" width="62.5" height="31"/>
@@ -63,20 +72,38 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZaJ-xv-O4d">
+                                <rect key="frame" x="20" y="709" width="135" height="32"/>
+                                <segments>
+                                    <segment title="Opacity"/>
+                                    <segment title="Stroke"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9I-jG-h4E">
+                                <rect key="frame" x="20" y="678.5" width="114.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Ifx-Dh-IIy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1cj-fp-9fw"/>
                             <constraint firstItem="Xve-ad-qse" firstAttribute="top" secondItem="Ifx-Dh-IIy" secondAttribute="bottom" constant="20" id="6h8-yq-v8v"/>
-                            <constraint firstItem="bcd-Vc-zVp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BEi-9Z-m4y"/>
+                            <constraint firstItem="gPW-xL-W6K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="812-YN-YlS"/>
+                            <constraint firstItem="Ifx-Dh-IIy" firstAttribute="top" secondItem="ZaJ-xv-O4d" secondAttribute="bottom" constant="20" id="FOq-65-aif"/>
                             <constraint firstItem="Xve-ad-qse" firstAttribute="leading" secondItem="Ifx-Dh-IIy" secondAttribute="leading" id="IQc-YY-8zG"/>
-                            <constraint firstItem="Ifx-Dh-IIy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TJc-k7-MXF"/>
-                            <constraint firstItem="bcd-Vc-zVp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="VTf-ja-McS"/>
+                            <constraint firstItem="ZaJ-xv-O4d" firstAttribute="leading" secondItem="p9I-jG-h4E" secondAttribute="leading" id="Qm1-KC-7MX"/>
+                            <constraint firstItem="gPW-xL-W6K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T77-qX-qNt"/>
+                            <constraint firstItem="ZaJ-xv-O4d" firstAttribute="top" secondItem="p9I-jG-h4E" secondAttribute="bottom" constant="10" id="a6T-QW-vUB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xve-ad-qse" secondAttribute="bottom" constant="20" id="dbM-dC-qrz"/>
+                            <constraint firstItem="Ifx-Dh-IIy" firstAttribute="leading" secondItem="ZaJ-xv-O4d" secondAttribute="leading" id="tfJ-Jd-t0h"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="animateSwitch" destination="bI5-5n-Bx5" id="YLg-gb-5Ur"/>
+                        <outlet property="animationTypeControl" destination="ZaJ-xv-O4d" id="ON8-aF-b7K"/>
                         <outlet property="checkmarkView" destination="bcd-Vc-zVp" id="cPe-sK-mXE"/>
                         <outlet property="showCheckmarkSwitch" destination="Web-PO-E3I" id="cx7-ex-9NU"/>
                     </connections>
